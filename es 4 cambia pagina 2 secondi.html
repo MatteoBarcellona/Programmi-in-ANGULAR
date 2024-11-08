@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="myCtrl"> 
+
+<p>Cambia pagina in 2 secondi</p>
+
+<h1>{{pagina}}</h1>
+
+</div>
+
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $timeout) {
+  $scope.pagina = "Ciao Visitatore!";
+  $timeout(function () {
+      $scope.pagina = "Come stai?";
+  }, 2000);
+  $timeout(function () {
+      $scope.pagina = "Ti va di visitare nuovi siti su Angular.";
+  }, 4000);
+});
+</script>
+
+</body>
+</html>

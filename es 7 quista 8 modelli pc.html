@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>Seleziona modello computer</p>
+<select ng-model="modello" ng-options="x.modello1 for x in pc">
+</select>
+<h1>La tua scelta: {{modello.modello1}}</h1>
+<p>Il suo prezzo è: {{modello.prezzo}} €</p>
+<p>Saldo disponibile: {{saldo}} €</p>
+<button ng-click="acquista()">Acquista</button>
+<p ng-show="mostraMessaggio">{{messaggio}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.pc = [
+    {modello1: "Apple MacBook Pro", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "HP Spectre x360", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Microsoft Surface Laptop 4", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Dell XPS 13", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Lenovo ThinkPad X1 Carbon", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Asus ZenBook 14", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Acer Swift 5", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Razer Blade 15", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "LG Gram 17", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        {modello1: "Samsung Galaxy Book Pro", prezzo: Math.floor(Math.random() * (1000 - 100 + 1) + 100)},
+        
+    ];
+
+    $scope.saldo = 1000;
+
+    $scope.messaggio = "";
+    $scope.mostraMessaggio = false;
+
+    $scope.acquista = function() {
+        if ($scope.modello.prezzo > $scope.saldo) {
+            $scope.messaggio = "Fondi insufficienti. Il prezzo supera il saldo disponibile.";
+            $scope.mostraMessaggio = true;
+        } else {
+            $scope.saldo -= $scope.modello.prezzo;
+            $scope.messaggio = "Grazie per l'acquisto! Il prezzo di " + $scope.modello.modello1 + " è stato sottratto dal tuo conto.";
+            $scope.mostraMessaggio = true;
+        }
+    };
+});
+
+</script>
+</body>
+</html>

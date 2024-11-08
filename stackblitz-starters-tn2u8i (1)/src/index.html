@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My app</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+ 
+  <!-- In messaggio.component.html -->
+<form (submit)="inviaMessaggio()">
+  <input [(ngModel)]="nome" placeholder="Inserisci il tuo nome">
+  <button type="submit">Invia</button>
+</form>
+<p>{{ messaggio }}</p>
+
+
+  </body>
+</html>

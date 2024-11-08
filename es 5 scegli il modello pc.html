@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<p>Seleziona modello compiuter</p>
+<select ng-model="modello" ng-options="x.modello1 for x in pc">
+</select>
+<h1>La tua scelta: {{modello.modello1}}</h1>
+<p>il suo prezzo è: {{modello.prezzo}}</p>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.pc = [
+        {modello1 : "Apple MacBook Pro", prezzo: "90 €"},
+        {modello1  : "HP Spectre x360", prezzo : "100 €"},
+        {modello1  : "Microsoft Surface Laptop 4", prezzo : "12 €"}
+    ];
+});
+</script>
+</body>
+</html>
