@@ -1,0 +1,15 @@
+<div>
+    <h2>Lista degli Elementi</h2>
+    
+    <!-- Mostra la lista -->
+    <ul>
+      <li *ngFor="let item of items">{{ item }}</li>
+    </ul>
+    
+    <!-- Campo di input per il nuovo elemento -->
+    <input [(ngModel)]="newItem" placeholder="Aggiungi un nuovo elemento" />
+    
+    <!-- Pulsante per aggiungere l'elemento -->
+    <button (click)="addItem()">Aggiungi</button>
+  </div>
+  
