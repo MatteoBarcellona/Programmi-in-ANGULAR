@@ -1,0 +1,39 @@
+<div>
+    <h2>Lista delle Card</h2>
+    <div class="cards-container">
+      <!-- Cicla sulle card -->
+      <app-card 
+        *ngFor="let card of cards; let i = index" 
+        [cardData]="card" 
+        (click)="removeCard(i)">
+      </app-card>
+    </div>
+  
+    <!-- Bottone per aprire il modal -->
+    <button type="button" class="btn" (click)="openModal()">Aggiungi Nuova Card</button>
+    
+    <!-- Modal personalizzato -->
+    <div class="modal" *ngIf="isModalOpen">
+      <div class="modal-content">
+        <h3>Nuova Card</h3>
+        
+        <form>
+          <div>
+            <label for="cardDescription">Descrizione</label>
+            <textarea id="cardDescription" [(ngModel)]="newCardDescription" name="description" rows="3" minlength="10" maxlength="100" required></textarea>
+          </div>
+  
+          <div>
+            <label for="cardColor">Codice Colore</label>
+            <input type="text" id="cardColor" [(ngModel)]="newCardColor" name="color" required />
+          </div>
+        </form>
+  
+        <div class="modal-buttons">
+          <button type="button" class="cancel-btn" (click)="closeModal()">Annulla</button>
+          <button type="button" class="confirm-btn" [disabled]="!newCardDescription || !newCardColor || newCardDescription.length < 10" (click)="addCard()">Conferma</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
