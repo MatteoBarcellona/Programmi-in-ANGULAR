@@ -1,0 +1,34 @@
+/* Contenitore del loader che copre tutta la pagina */
+.loader-container {
+    position: fixed;  /* Posizione fissa per coprire tutta la pagina */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 255, 0.8);  /* Sfondo blu traslucido */
+    display: flex;
+    justify-content: center;  /* Centra orizzontalmente */
+    align-items: center;  /* Centra verticalmente */
+    z-index: 1000;  /* Garantisce che il loader stia sopra gli altri contenuti */
+  }
+  
+  /* Il loader circolare (simile a quello di Windows 10) */
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 8px solid #f3f3f3;  /* Colore di sfondo del cerchio */
+    border-top: 8px solid #3498db;  /* Colore del bordo superiore, il più visibile durante la rotazione */
+    border-radius: 50%;  /* Rende il loader circolare */
+    animation: spin 1.5s linear infinite;  /* Rotazione continua */
+  }
+  
+  /* Animazione di rotazione del cerchio */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg); /* All'inizio è a 0 gradi */
+    }
+    100% {
+      transform: rotate(360deg); /* Alla fine ha compiuto una rotazione completa */
+    }
+  }
+  

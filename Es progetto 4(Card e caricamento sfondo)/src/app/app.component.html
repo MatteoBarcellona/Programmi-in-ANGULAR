@@ -1,0 +1,10 @@
+<!-- Modal per il form -->
+<app-modal *ngIf="isModalVisible" (close)="onModalClose()" (submit)="onModalSubmit($event)"></app-modal>
+
+<!-- Loader che appare durante il caricamento -->
+<app-loader *ngIf="isLoaderVisible"></app-loader>
+
+<!-- Visualizza le card aggiunte -->
+<div *ngFor="let card of cards">
+  <app-card [content]="card"></app-card>
+</div>

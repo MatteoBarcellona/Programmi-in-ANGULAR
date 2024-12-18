@@ -1,0 +1,9 @@
+<div class="modal" *ngIf="isOpen">
+    <div class="modal-content">
+      <form (ngSubmit)="onSubmit()">
+        <input [(ngModel)]="formData" name="data" placeholder="Inserisci dati" required />
+        <button type="submit">Conferma</button>
+      </form>
+    </div>
+  </div>
+  
