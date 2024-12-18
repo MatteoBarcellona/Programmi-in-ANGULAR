@@ -1,0 +1,21 @@
+<div class="header">
+  <label for="language-select">Scegli la lingua:</label>
+  <select id="language-select" (change)="changeLanguage($event)" [value]="currentLanguage">
+    <option value="it">Italiano</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<div class="content">
+  <!-- Titolo -->
+  <h1>{{ translations.title }}</h1>
+
+  <!-- Testo tradotto -->
+  <p>{{ translations.description }}</p>
+
+  <!-- Bottone tradotto -->
+  <button>{{ translations.button }}</button>
+
+  <!-- Etichetta tradotta -->
+  <label>{{ translations.label }}</label>
+</div>
